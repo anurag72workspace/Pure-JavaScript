@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container"><br>
+        <h1 class="text-success text-center">JavaScript validation Form</h1><br>
+        <div class="col-lg-8 m-auto d.block">
+            <form action="#" onsubmit="return validation()" class="bg-light">
+            
+                <div class="form-group">
+                    <label>Username: </label>
+                    <input type="text" name="user" class="form-control" id="user">
+                    <span id="username" class="text-danger font-width-bold"></span>
+                </div>
+
+
+             <div class="form-group">
+                    <label>Password: </label>
+                    <input type="text" name="pass" class="form-control" id="pass">
+                    <span id="norpass" class="text-danger font-width-bold"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm Password: </label>
+                    <input type="text" name="pass" class="form-control" id="conpass">
+                    <span id="Confirmpass" class="text-danger font-width-bold"></span>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number: </label>
+                    <input type="text" name="mobile" class="form-control" id="mobilenumber">
+                    <span id="mobilenum" class="text-danger font-width-bold"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Email: </label>
+                    <input type="text" name="email" class="form-control" id="emails">
+                    <span id="emailid" class="text-danger font-width-bold"></span>
+                </div>
+
+                <input type="Submit" name="Submit" value="Submit" class="btn btn-success">
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        function validation() {
+
+            var user = document.getElementById('user').value;
+            var p = document.getElementById('pass').value;
+            var pf = document.getElementById('conpass').value;
+            var cm = document.getElementById("mobilenumber").value;
+            var eid = document.getElementById("emails").value;
+
+
+       
+            if(user=="")
+            {
+                document.getElementById('username').innerHTML= " ** Please fill the user name....";
+                return false;
+            }
+            if((user.lenght <=2) || (user.lenght <20) )
+            {
+                document.getElementById('username').innerHTML= " User name must be between 3 to 20 characters...";
+                return false;
+                
+            }
+            if(!isNaN(user)){
+                document.getElementById('username').innerHTML= " please enter in alphabatics ...";
+                return false;
+                
+            }
+
+            
+            if(p =="")
+            {
+                document.getElementById('norpass').innerHTML= " ** Please fill the passwrod...."
+                return false;
+            }
+            if((p.lenght <=8) || (p.lenght >25)){
+                document.getElementById('norpass').innerHTML= " please enter pass between 8 to 25...";
+                return false;
+            }
+            if(p!=pf){
+
+                document.getElementById('norpass').innerHTML= " password are not matching...";
+                return false;
+                
+            }
+
+            if(pf =="")
+            {
+                document.getElementById('confirmpass').innerHTML= " ** password is not match...."
+                return false;
+            }
+
+            // if(pf==p){
+            //     document.getElementById('norpass').innerHTML= " password are not matching.";
+            //     return false;
+            // }
+
+
+            
+            if(cm=="")
+            {
+                document.getElementById('mobilenum').innerHTML= " ** Please fill the mobile number...."
+                return false;
+            }
+            if(isNaN(cm)){
+                document.getElementById('mobilenum').innerHTML= "please enter numeric digits not character";
+                return false;
+            }
+
+            if(cm.lenght<=10)
+            {
+                document.getElementById('mobilenum').innerHTML= "enter digits must be 10 in numeric";
+                return false;
+                
+            }
+
+            
+            if(eid="")
+            {
+                document.getElementById('emailid').innerHTML= " ** Please fill the Email id...."
+                return false;
+            }
+      
+        }
+    </script>
+
+    </body>
+</html>
